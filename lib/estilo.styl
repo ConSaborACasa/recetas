@@ -1,0 +1,733 @@
+vendor-prefixes ?= webkit moz official
+@import 'nib'
+
+@import url(http://openfontlibrary.org/face/grupo3)
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700)
+@import url(https://fonts.googleapis.com/css?family=Arvo:700);
+
+//Variables
+cVerde1 = rgb(42, 196, 118);
+cVerde2 = rgb(37, 177, 106);
+cVerdeHover = rgb(20, 205, 144);
+cNaranja1 = #f39c12;
+cBack1 = #e7e7e7;
+cNav1 = #383838;
+cFooter1 = rgba(#e0ac37, 0.55);
+shadow-nueva = 1px 2px 5px rgba(0,0,0,.09);
+
+*
+  font-family 'Lato', 'Open Sans',"helvetica neue",sans-serif
+
+p,h1,h1,h3,h4,h5,h6
+  padding 0
+  margin 0
+
+a
+  text-decoration none
+
+body
+  margin 0
+  padding 0
+  display flex
+  flex-direction column
+  height 100%
+  align-items center
+  background cBack1
+
+header
+  width 100%
+  height 70px
+  background cNaranja1
+  display flex
+  justify-content center
+
+nav
+  width 100%
+  height 30px
+  background cNav1
+  margin-bottom 10px
+  display flex
+  justify-content center
+  box-shadow 0px 4px 11px -6px rgba(38,22,0,1)
+.menu
+  width 980px
+  height 100%
+  display flex
+  align-items center
+  ul
+    margin 0
+    padding 0 0 0 10px
+  li
+    display inline
+    color white
+    margin-right 10px
+    transition ease 0.5s all
+    &:hover
+      color cVerdeHover
+
+.top
+  width 980px
+  display flex
+  justify-content space-between
+  align-items center
+  &-logo
+    display flex
+    align-items center
+  &-icons
+    display flex
+    align-items center
+  img
+    margin 0 10px
+  h1
+    color white
+
+.button,[class*="button-"]
+  display inline-block
+  height 30px
+  font 300 1em/30px 'Open Sans', sans-serif
+  letter-spacing .08em
+  padding 5px
+  margin-left 10px
+  background cVerde2
+  text-decoration none
+  text-shadow 0 1px 3px rgba(0, 0, 0, 0.35)
+  letter-spacing .08em
+  color #fff
+  border-radius 2px
+  transition ease 0.35s all
+  overflow hidden
+  float left
+  padding 0 10px 0 10px
+  position relative
+
+.button:hover,[class*="button-"]:hover
+  background cVerdeHover
+  box-shadow 0 0 3px rgba(0, 0, 0, 0.5) inset
+
+.button-hover
+  &:hover
+    line-height 7.5em
+  &:before
+    content attr(data-texto)
+    color #DEEFF5
+    position absolute
+    top -2.75em
+
+main
+  width 980px
+  .receta
+    box-sizing border-box
+    h1
+      padding 10px 0 0 0
+      margin 0 0px 0 10px
+      &:before
+        content "\00a0\00a0\00a0\00a0\00a0\00a0"
+        background url('./images/knife.png') no-repeat
+        background-size 32px 32px
+    >p
+      padding 0
+      margin 0 0 10px 54px
+      color gray
+      width 100%
+      text-align left
+    &-info
+      width 980px
+      height 200px
+      background #aed5af
+      color #538754
+      font-family 'GRUPO3'
+      font-size 6em
+      display flex
+      align-items center
+      justify-content space-around
+      padding 10px
+      box-sizing border-box
+      &-chef
+        height 100px
+        width 200px
+        margin-top -40px
+        p
+          font-size 24px
+          font-weight bold
+          width 200px
+        &:before
+          content "\00a0\00a0\00a0\00a0"
+          background url('./images/chef-2.png') no-repeat
+          background-size 76px 100px
+          margin-left 30px
+      &-tiempo
+        width 200px
+        margin-left -250px
+        &:before
+          content "\00a0\00a0\00a0\00a0\00a0\00a0"
+          background url('./images/clock.png') no-repeat
+          background-size 100px 100px
+      &-cal
+        width 200px
+        margin-left -220px
+        &:before
+          content "\00a0\00a0\00a0\00a0"
+          background url('./images/cal.png') no-repeat
+          background-size 76px 100px
+        &:after
+          content "kcal"
+          font-size 16px
+    &-ingredientes
+      ul
+        margin 0
+        padding 0
+        counter-reset li
+      li
+        padding 10px 15px 10px 40px
+        border-bottom 1px solid #ddd
+        position relative
+        transition ease 0.2s all
+        &:before
+          content counter(li)
+          counter-increment li
+          position absolute
+          top 0
+          left 0
+          box-sizing border-box
+          background #f2f2f2
+          border-right 1px solid #ddd
+          height 100%
+          margin 0
+          padding 10px
+          font-size 11px
+          color #999
+          text-align center
+        &:hover
+          background rgba(221, 221, 221, 0.12)
+    &-preparacion
+      &-contenido
+        padding 10px
+        >img
+          max-width 300px
+          max-height 300px
+          border-radius 3px
+          float left
+          margin 0 10px 10px 0
+        p
+          display inline
+.recomendaciones
+  height 220px
+  display flex
+  flex-direction column
+  &-sugerencias
+    padding 0 10px
+    display flex
+    justify-content center
+    align-items center
+    height 100%
+
+    ul
+      width 100%
+      display flex
+      justify-content space-around
+      align-items center
+      margin 0
+      padding 0
+      li
+        width 200px
+        height 150px
+        overflow hidden
+
+      img
+        border-radius 3px
+        transition ease 0.1s all
+        &:hover
+          width 205px
+          height 155px
+
+.comentarios
+  display flex
+  flex-direction column
+  justify-content center
+  boz-sizing border-box
+  &-nuevo
+    padding 10px
+    display flex
+    flex-direction column
+    border-bottom 1px solid #ddd
+    margin-bottom 10px
+    input[type="text"],input[type="email"]
+      width 50%
+      box-sizing border-box
+      height 50px
+      font-size 16px
+      border 1px solid black
+      margin 10px 0
+    input[type="text"]
+      margin-right 10px
+  textarea
+    outline none
+    margin-bottom 10px
+    font-size 16px
+    border 1px solid black
+  input[type="submit"]
+    margin 0
+
+  ul
+    padding 0
+    margin 10px
+[data-comentarios="datos"]
+  display flex
+  justify-content space-between
+
+
+.comentario
+  box-sizing border-box
+  align-self center
+  background rgba(#d1cdcd, 0.3)
+  margin-bottom 10px
+  padding 10px
+  display flex
+  flex-direction column
+  align-items flex-start
+  font-family "PT Sans"
+  color #555f77
+  box-shadow 0 1px 3px 0 rgba(0,0,0,0.08)
+  &-bottom
+    color #acb4c2
+    font-size 13px
+    padding 5px 0px
+    margin-top 5px
+    border-top 1px solid #ddd
+    display inline
+    width 100%
+
+
+footer
+  width 100%
+  height 40px
+  background cFooter1
+  display flex
+  align-self center
+  justify-content center
+  color white
+  font-weight bold
+  font-size 16px
+  line-height 40px
+
+
+.encabezado
+  width 100%
+  height 30px
+  background rgba(218, 218, 218, 0.53)
+  font-weight bold
+  line-height 30px
+  padding-left 10px
+  display flex
+  align-items center
+
+
+.caja
+  box-sizing border-box
+  overflow hidden
+  border 1px solid rgba(#a6a6a6, 0.52)
+  background white
+  margin-bottom 10px
+  box-shadow 0 0 5px 2px rgba(0, 0, 0, .05)
+
+.icono
+  width 24px
+  height 24px
+  background-size 24px 24px
+  &-ingredientes
+    background url('./images/ingredientes.png') no-repeat
+  &-cooking
+    background url('./images/cooking.png') no-repeat
+  &-chat
+    background url('./images/chat.png') no-repeat
+  &-suggest
+    background url('./images/suggest.png') no-repeat
+  &-usuario
+    background url('./images/useric.png') no-repeat cVerde1
+
+
+ul
+  list-style-type none
+
+input
+  outline none
+  border none
+  padding-left 5px
+  &::-webkit-input-placeholder
+    color #aaaaaa
+    position relative
+    padding 0
+    transition padding-top .8s ease
+  &:hover::-webkit-input-placeholder
+    padding-top 3em
+
+  &::-moz-placeholder
+    color #aaaaaa
+    position relative
+    padding 0
+    transition padding-top .8s ease
+  &:hover::-moz-placeholder
+    padding-top 3em
+
+  &:-ms-input-placeholder
+    color #aaaaaa
+    position relative
+    padding 0
+    transition padding-top .8s ease
+  &:hover:-ms-input-placeholder
+    padding-top 3em
+
+
+//Receta nueva
+
+.nueva
+  padding 10px
+  display flex
+  flex-direction column
+  align-items center
+  input
+    box-shadow shadow-nueva
+    border-radius 2px 4px 4px 2px
+    border 1px solid rgba(0, 0, 0, 0.07)
+    height 10px
+    padding 10px
+    margin-right 10px
+  &-titulo
+    width 100%
+    text-shadow 0 1px 0 rgba(255, 255, 255, 0.4)
+    margin-top -10px
+    padding-bottom 3px
+    border-bottom 2px solid cVerde1
+    &:before
+      content "+"
+      padding 5px 10px
+      margin-left -10px
+      background cVerde1
+  &-nombre#newNombre
+    width 900px
+    font-size 16px
+    margin 0
+    height 30px
+    border-radius 0 4px 4px 0
+  &-tipo
+    margin-top 10px
+    width 100%
+    display flex
+    justify-content center
+  &-tipo label.radio
+    cursor pointer
+    text-indent 35px
+    overflow visible
+    display inline-block
+    position relative
+    margin-bottom 15px
+    &:before
+      background cVerde1
+      content ''
+      position absolute
+      top 2px
+      left 0
+      width 20px
+      height 20px
+      border-radius 100%
+    &:after
+      opacity 0
+      content ''
+      position absolute
+      width 0.5em
+      height 0.25em
+      background transparent
+      top 7.5px
+      left 4.5px
+      border 3px solid #ffffff
+      border-top none
+      border-right none
+      transform rotate(-45deg)
+  &-ingredientes
+    width 100%
+    margin 0 10px
+
+    ul>li
+      display flex
+      justify-content space-between
+      border-right 1px solid #ddd
+      height 30px
+      font-size 12px
+      line-height 30px
+      padding-top 2px
+      padding-bottom 2px
+      &:before
+        background cVerde1
+        border 1px solid cVerde2
+        color black
+        height 34px
+        font-size 12px
+        line-height 12px
+  &-preparacion
+    width 100%
+    margin 10px 10px 10px 0
+    &-titulo
+      font-size 20px
+      &:before
+        content ''
+        background cVerde1
+        width 50px
+        height 50px
+    textarea
+      width 100%
+      border 1px solid #ddd
+  input[type="submit"]
+    width 100%
+    height 50px
+input[type=radio]
+  visibility hidden
+input[type=radio]:checked + label:after
+  opacity 1
+label[for="newNombre"]
+  width 50px
+  height 50px
+  background url('./images/nombreReceta.png') no-repeat cVerde1
+  background-position center
+  background-size 32px 32px
+  border 1px solid cVerde2
+  border-right none
+label[data-tam="mediano"]
+  width 30px
+  height 30px
+  border 1px solid cVerde2
+  border-right none
+  background-position center
+  background-size 24px 24px
+.label
+  margin-right -3px
+  box-shadow shadow-nueva
+  &-newCorreo
+    background url('./images/mailic.png') no-repeat cVerde1
+  &-newUser
+    background url('./images/useric.png') no-repeat cVerde1
+  &-newDesc
+    background url('./images/descic.png') no-repeat cVerde1
+  &-newTiempo
+    background url('./images/tiempoic.png') no-repeat cVerde1
+  &-newCal
+    background url('./images/calic.png') no-repeat cVerde1
+  &-newImg
+    background url('./images/imgic.png') no-repeat cVerde1
+  &-newPersonas
+    background url('./images/persic.png') no-repeat cVerde1
+  &-newIngred
+    background cVerde1
+    border 1px solid cVerde2
+    border-right none
+    width 40px
+    height 40px
+    text-align center
+    line-height 40px
+    font-size 22px
+    font-weight bold
+    cursor pointer
+.delete
+  cursor pointer
+input[type="number"]
+  line-height 30px
+  padding 0 0 0 5px
+  height 30px
+.newIngrediente + input[type="number"]
+  margin-left -12px
+  height 20px
+  padding 10px
+  line-height 20px
+  width 70px
+.newDescripcion
+  width 400px
+input[type="text"].newIngrediente
+  width 200px
+  height 20px
+
+.row
+  display flex
+  flex-direction row
+  align-items center
+  width 100%
+  margin-top 10px
+
+.buscador
+  position fixed
+  top 0
+  left 0
+  width 100%
+  height 100%
+  background rgba(0, 0, 0, 0.62)
+  display flex
+  align-items center
+  justify-content center
+  display none
+  font-weight bold
+  &-close
+    font-weight bold
+    color rgb(186, 28, 28)
+    position absolute
+    top -25px
+    right 0
+    cursor pointer
+  &-formulario
+    width 980px
+    height 50px
+    background rgba(233, 229, 229, 1)
+    border-radius 3px
+    border 1px solid rgb(158, 162, 163)
+    position relative
+    margin 5% auto
+  &-txt
+    width 900px
+    height 50px
+    box-sizing border-box
+    font-size 16px
+    position absolute
+  &-titulo
+    top 0
+    left 0
+  &-nombre
+    top 0
+    left 0
+    display none
+  &-select
+    width 90px
+    height 50px
+    appearance none
+    position absolute
+    right 0
+  &-live
+    width 100%
+    background white
+    box-sizing border-box
+    padding 0
+    margin 50px 0 0 0
+    li
+      padding 10px
+      border 1px solid #ddd
+      border-radius 0 0 5px 5px
+      transition ease 0.3s all
+      &:hover
+        background rgba(120, 120, 120, 0.04)
+      >p
+        margin-left 40px
+        color gray
+      >img
+        float left
+        margin-right 20px
+        margin-top -1px
+        border-radius 100%
+
+
+//INDEX
+.container
+  width 100%
+  background white
+  margin-top -10px
+  display flex
+  flex-direction column
+  align-items center
+  box-shadow 0px 1px 3px 0px rgba(0, 0, 0, 0.21) inset
+.fondo
+  width 100%
+  height 300px
+  background url('./images/fondo.jpg') no-repeat center
+  background size 100% 500px
+  margin-top -10px
+  margin-bottom 10px
+  box-shadow 0px 1px 3px 0px rgba(0, 0, 0, 0.21) inset
+  &-capa
+    height 100%
+    width 100%
+    transition ease 0.8s all
+    &:hover
+      background rgba(0, 0, 0, 0.19)
+.ultimas
+  padding 10px
+  &-recetas
+    display flex
+    flex-flow row wrap
+    align-content flex-end
+    justify-content space-around
+  &-titulo
+    border-bottom 5px solid cVerde1
+    font-size 3rem
+    font-family  'GRUPO3'
+    color rgb(65, 65, 65)
+    margin 0 20px
+  &-cambio
+    display flex
+    justify-content center
+    align-items center
+    height 50px
+    margin 0 20px
+    border-top 5px solid cVerde1
+    button
+      margin 0 10px
+      background cVerde1
+      color white
+      border-radius 4px
+      text-shadow 0 1px 1px rgba(0, 0, 0, 0.2)
+      display: inline-block;
+      zoom 1
+      line-height normal
+      white-space nowrap
+      vertical-align middle
+      text-align center
+      cursor pointer
+      user-select none
+      text-decoration none
+      border none
+      font-size 100%
+      padding 10px 20px
+      transition ease 0.5s all
+      &:hover
+        background rgb(38, 171, 103)
+
+.contenedor
+  background red
+  height 200px
+  width 200px
+  overflow hidden
+  position relative
+  box-shadow 0px 2px 5px 0 rgba(0, 0, 0, 0.26)
+  margin 10px 0
+  &-up
+    background rgba(0, 0, 0, 0.56)
+    position absolute
+    bottom -200px
+    height 200px
+    width 200px
+    transition 1s bottom cubic-bezier(0,1,1,1)
+    color white
+    font-size 24px
+    font-weight bold
+    text-align center
+    display flex
+    align-items center
+    justify-content center
+    p
+      display inline
+
+  &:hover .contenedor-up
+    position absolute
+    bottom 0
+
+//MODAL
+.modal-nueva
+  width 100%
+  position fixed
+  background rgba(0, 0, 0, 0.62)
+  display flex
+  flex-direction column
+  justify-content center
+  align-items center
+  top 0
+  height 100%
+  display none
+  >.caja
+    border none
+    border-radius 5px
+    width 980px
+    margin 5% auto
